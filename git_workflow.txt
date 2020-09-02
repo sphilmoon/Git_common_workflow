@@ -1,4 +1,4 @@
-t version 2.25.1 Common Workflow Notes
+Git version 2.25.1 Common Workflow Notes
 ========================================
 
 Updated on Sep 02 2020 by sphilmoon
@@ -53,5 +53,15 @@ Updated on Sep 02 2020 by sphilmoon
 17. git branch -d <THE_NEW_BRANCH>
 18. git branch -a
 19. git push origin --delete <THE_NEW_BRANCH>
+
+# My successful Workflow
+
+1. git clone <https://your.repository.to.download.from.websit.git> <.>
+2. git remote add origin <https://github.com/sphilmoon/MY_REPOSITORY.git>
+3. git remote -v
+4. git add .
+5. git status
+6. git commit -m "<EXPLICIT DESCRIPTION OF THE COMMIT>"
+7. git push origin master
 
 ---THE END---
