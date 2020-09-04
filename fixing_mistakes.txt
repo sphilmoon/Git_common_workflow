@@ -1,0 +1,57 @@
+# fixing the committed messages (this will change the git history as well):
+git commit --amend -m "<THE NEW MESSAGE TO AMEND>"
+
+# adding a file to the previous commit without making a new commit:
+git commit --amend # I can also change the commit message in interactive mode.
+git log --stat # show newly added files to the previous commit.
+
+# accidentally working on a MASTER (wrong) branch.
+# use cherry-pick: creating a new commit based on the original commit.
+git log # copy the hash number.
+git checkout # to switch branch that I was supposed to be working on.
+git cherry-pick <THE HASH NUMBER>
+git log # bringing the commit to the correct branch.
+
+# getting rid of my commit on the MASTER branch.
+# use git reset: --soft, --mixed (default), --hard
+git checkout master
+git log
+git reset --soft <THE HASH NUMBER> # keep my files in the staging area.
+git log # to check removed commit.
+git status # my committed files remain intact on the stage.
+
+git reset <THE HASH NUMBER> # keep the changes, but removed from the stage.
+git log # to check removed commit.
+git status # no committed files on the stage.
+
+git reset --hard <THE HASH NUMBER> # going back to everything as it was.
+git log # to check removed commit.
+git status # removed changes, removed from staging area.
+
+# getting rid of untracked directories and files:
+git clean -df
+git status # my working directory should be clean.
+
+# recovering my deleted changes from git reset --hard:
+git reflog # showing what I did (history) in order. Then, pick the commit
+             before I made the reset.
+git checkout <THE HASH NUMBER>
+
+# creating backup:
+git branch backup # creating a branch named "backup"
+git branch # checking the newly created branch.
+git checkout master # this will put
+git checkout backup
+git log # to check my committed history under this "backup" branch.
+
+# changing the git history where other people already pulled the changes that
+  need to be undo.
+git revert # create new commits to reverse the effect the earlier commit.
+           # history remain intact.
+           # this will not modify or delete the existing commits.
+           # other people will see the new commit (revert) that I made so they
+           can re-download. 
+
+git log
+git revert <THE ORIGINAL HASH NUMBER>
+git diff <THE ORIGINAL HASH NUMBER> <THE NEW HASH NUMBER>
