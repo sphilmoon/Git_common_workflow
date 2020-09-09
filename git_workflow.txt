@@ -64,4 +64,14 @@ Updated on Sep 02 2020 by sphilmoon
 6. git commit -m "<EXPLICIT DESCRIPTION OF THE COMMIT>"
 7. git push origin master
 
+# Adding new files to the existing git MY_REPOSITORY
+
+1. git init
+2. git remote add origin <https://github.com/sphilmoon/MY_REPOSITORY.git>
+3. git remote -v
+4. git pull origin master
+5. git add <FILES>
+6. git commit -m "<EXPLICIT DESCRIPTION OF THE COMMIT>"
+7. git push origin master
+
 ---THE END---
